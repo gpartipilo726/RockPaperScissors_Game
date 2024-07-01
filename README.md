@@ -1,5 +1,4 @@
-# CalculatorApp
-Rock Paper Scissors Game
+# Rock Paper Scissors Game
 
 RULES:
 - Each player takes turn typing in their choice (Rock, Paper, or Scissors)
