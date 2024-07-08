@@ -88,72 +88,84 @@ let playRound = (humanChoice) => {
 
 }
 
-let playGame = () => {
-    let play = "";
-    humanChoice = "";
-    let computerChoice = "";
-
-    console.log("*****  ||  Welcome to the Rock, Paper, Scissors game! || *****");
-
-
-    console.log(" |$|$|$|$|$| FINAL SCORE |$|$|$|$|$|"); 
-    console.log(" ")
-    console.log("Your Score: " + humanScore);
-    console.log("Computer Score: " + computerScore); 
-    console.log(" ")
+let playResults = () => {
+    const resultsH1 = document.createElement("h1");
+    const endPlayerScore = document.createElement("h2");
+    const endComputerScore = document.createElement("h2");
+    const containerDiv = document.querySelector("#container");
+    const playAgainBtn = document.createElement("button");
+    containerDiv.textContent = '';
 
     if(humanScore > computerScore){
-        console.log("|$|$|$|$|$|$|  ***  YOU ARE THE WEINER!!!  ***  |$|$|$|$|$|") 
-
-    } else if (humanScore < computerScore){
-        console.log("Sorry you lost. Better luck next time, loser! :(");
-
+        resultsH1.textContent = "You Win! Congratulations!";
     } else {
-        console.log("It's a tie! No one wins! :/");
-
+        resultsH1.textContent = "You Lose! Better luck next time...";
     }
 
+    endPlayerScore.textContent = 'Player Score: ' + humanScore;
+    endComputerScore.textContent = 'Computer Score: ' + computerScore;
 
-    console.log("Thanks for Playing!");
+    playAgainBtn.textContent = 'Play Again ?'
+    playAgainBtn.setAttribute("onClick","window.location.reload();");
 
+
+    containerDiv.appendChild(resultsH1);
+    containerDiv.appendChild(endPlayerScore);
+    containerDiv.appendChild(endComputerScore);
+    containerDiv.appendChild(playAgainBtn);
 
 }
 
 
 
 rockbtn.addEventListener("click", () => {
-    let choice = rockbtn.textContent;
+    let playerChoice = rockbtn.textContent;
     const playerScore = document.querySelector("#playerScore");
     const compScore = document.querySelector("#computerScore");
     
-    if(humanScore === 5 || computerScore === 5){
+    results.textContent = '';
 
+    if( humanScore === 5 || computerScore === 5){
+        playResults();
+    } else{
+        playRound(playerChoice);
+        playerScore.textContent = humanScore;
+        compScore.textContent = computerScore;
     }
-
-    playRound(choice);
-    playerScore.textContent = humanScore;
-    compScore.textContent = computerScore;
+        
     
 
 });
 
 paperbtn.addEventListener("click", () => {
-    let choice = paperbtn.textContent;
+    let playerChoice = paperbtn.textContent;
 
     const playerScore = document.querySelector("#playerScore");
     const compScore = document.querySelector("#computerScore");
     
-    playRound(choice);
-    playerScore.innerHTML = humanScore;
-    compScore.innerHTML = computerScore;
+    results.textContent = '';
+
+    if( humanScore === 5 || computerScore === 5){
+        playResults();
+    } else{
+        playRound(playerChoice);
+        playerScore.textContent = humanScore;
+        compScore.textContent = computerScore;
+    }
 });
 
 scissorsbtn.addEventListener("click", () => {
-    let choice = scissorsbtn.textContent;
+    let playerChoice = scissorsbtn.textContent;
     const playerScore = document.querySelector("#playerScore");
     const compScore = document.querySelector("#computerScore");
     
-    playRound(choice);
-    playerScore.innerHTML = humanScore;
-    compScore.innerHTML = computerScore;
+    results.textContent = '';
+
+    if( humanScore === 5 || computerScore === 5){
+        playResults();
+    } else{
+        playRound(playerChoice);
+        playerScore.textContent = humanScore;
+        compScore.textContent = computerScore;
+    }
 });
