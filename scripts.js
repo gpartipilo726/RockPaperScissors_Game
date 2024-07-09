@@ -2,18 +2,6 @@ let rockbtn = document.querySelector("#rock");
 let paperbtn = document.querySelector("#paper");
 let scissorsbtn = document.querySelector("#scissors");
 
-
-
-
-
-
-
-
-
-
-
-
-
 let humanScore = 0;
 let computerScore = 0;
 
@@ -97,9 +85,9 @@ let playResults = () => {
     containerDiv.textContent = '';
 
     if(humanScore > computerScore){
-        resultsH1.textContent = "You Win! Congratulations!";
+        resultsH1.textContent = "Game Over! You Win! Congratulations!";
     } else {
-        resultsH1.textContent = "You Lose! Better luck next time...";
+        resultsH1.textContent = "Game Over! You Lose! Better luck next time...";
     }
 
     endPlayerScore.textContent = 'Player Score: ' + humanScore;
